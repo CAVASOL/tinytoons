@@ -4,6 +4,7 @@ void main() {
   runApp(const App());
 }
 
+@override
 class App extends StatefulWidget {
   const App({super.key});
 
@@ -15,8 +16,8 @@ class _AppState extends State<App> {
   int counter = 0;
 
   void onClicked() {
-    counter = counter + 1;
     setState(() {});
+    counter = counter + 1;
   }
 
   @override
@@ -30,22 +31,16 @@ class _AppState extends State<App> {
             children: [
               const Text(
                 'Click Count',
-                style: TextStyle(
-                  fontSize: 30,
-                ),
+                style: TextStyle(fontSize: 30),
               ),
               Text(
                 '$counter',
-                style: const TextStyle(
-                  fontSize: 30,
-                ),
+                style: const TextStyle(fontSize: 30),
               ),
               IconButton(
                 iconSize: 40,
                 onPressed: onClicked,
-                icon: const Icon(
-                  Icons.add_box_rounded,
-                ),
+                icon: const Icon(Icons.add_box_rounded),
               )
             ],
           ),
