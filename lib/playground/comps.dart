@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tinytoons/widgets/currency_card.dart';
-import 'widgets/button.dart';
+import '../widgets/button.dart';
 
 class Framework extends StatelessWidget {
   const Framework({super.key});
