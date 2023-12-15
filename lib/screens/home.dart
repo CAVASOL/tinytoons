@@ -1,6 +1,9 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:tinytoons/models/webtoon_model.dart';
 import 'package:tinytoons/services/api_service.dart';
+import 'package:tinytoons/widgets/webtoon_widget.dart';
 
 class Home extends StatelessWidget {
   Home({super.key});
@@ -16,10 +19,11 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         title: const Text(
-          '오늘 웹툰',
+          'TINYTOON',
           style: TextStyle(
             fontSize: 20,
-            fontWeight: FontWeight.w400,
+            fontWeight: FontWeight.w600,
+            fontStyle: FontStyle.italic,
           ),
         ),
       ),
@@ -52,21 +56,16 @@ class Home extends StatelessWidget {
     return ListView.separated(
       scrollDirection: Axis.horizontal,
       itemCount: snapshot.data!.length,
+      padding: const EdgeInsets.symmetric(
+        vertical: 10,
+        horizontal: 20,
+      ),
       itemBuilder: (context, index) {
         final webtoon = snapshot.data![index];
-        return Column(
-          children: [
-            SizedBox(
-              width: 240,
-              child: Image.network(
-                webtoon.thumb,
-                headers: const {
-                  'Referer': 'https://comic.naver.com',
-                },
-              ),
-            ),
-            Text(webtoon.title),
-          ],
+        return Webtoon(
+          title: webtoon.title,
+          thumb: webtoon.thumb,
+          id: webtoon.id,
         );
       },
       separatorBuilder: (context, index) => const SizedBox(
