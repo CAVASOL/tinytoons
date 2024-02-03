@@ -3,7 +3,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tinytoons/models/webtoon_detail_model.dart';
 import 'package:tinytoons/models/webtoon_epidose_model.dart';
 import 'package:tinytoons/services/api_service.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../widgets/episode_widget.dart';
 
